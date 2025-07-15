@@ -1,0 +1,83 @@
+Create Database Student_Managment_System;
+Use Student_Managment_System;
+
+Create table Students(
+	stud_id int auto_increment Primary Key,
+    matricola varchar(10) not null unique,
+    firstName varchar(250) not null,
+    lastName varchar(250) not null,
+    email varchar(250)
+);
+
+Create table Teachers(
+	teach_id int auto_increment Primary Key,
+    teach_cod varchar(10) not null unique,
+    firstName varchar(250) not null,
+    lastName varchar(250) not null,
+    teachingSubject varchar(250) not null,
+    email varchar(250)
+);
+
+
+Create table Courses(
+	cours_id int auto_increment Primary Key,
+    coursName varchar(250) not null,
+    teacher_id int Not null,
+    foreign key (teacher_id) references Teachers(teach_id)
+);
+
+Create table Enrollments(
+	student_id int not null,
+    course_id int not null,
+    Primary key (student_id,course_id),
+    foreign key (student_id) references Students(stud_id),
+    foreign key (course_id) references Courses(cours_id)
+);
+
+
+INSERT INTO Students (matricola, firstName, lastName, email) VALUES ('S0001', 'Luca', 'Rossi', 'luca.rossi@example.com');
+INSERT INTO Students (matricola, firstName, lastName, email) VALUES ('S0002', 'Giulia', 'Bianchi', 'giulia.bianchi@example.com');
+INSERT INTO Students (matricola, firstName, lastName, email) VALUES ('S0003', 'Marco', 'Verdi', 'marco.verdi@example.com');
+INSERT INTO Students (matricola, firstName, lastName, email) VALUES ('S0004', 'Sara', 'Neri', 'sara.neri@example.com');
+INSERT INTO Students (matricola, firstName, lastName, email) VALUES ('S0005', 'Davide', 'Russo', 'davide.russo@example.com');
+INSERT INTO Students (matricola, firstName, lastName, email) VALUES ('S0006', 'Chiara', 'Ferrari', 'chiara.ferrari@example.com');
+INSERT INTO Students (matricola, firstName, lastName, email) VALUES ('S0007', 'Andrea', 'Esposito', 'andrea.esposito@example.com');
+INSERT INTO Students (matricola, firstName, lastName, email) VALUES ('S0008', 'Martina', 'Romano', 'martina.romano@example.com');
+INSERT INTO Students (matricola, firstName, lastName, email) VALUES ('S0009', 'Simone', 'Colombo', 'simone.colombo@example.com');
+INSERT INTO Students (matricola, firstName, lastName, email) VALUES ('S0010', 'Elisa', 'Ricci', 'elisa.ricci@example.com');
+
+INSERT INTO Teachers (teach_cod, firstName, lastName, teachingSubject) VALUES ('T001', 'Paolo', 'Conti', 'Matematica');
+INSERT INTO Teachers (teach_cod, firstName, lastName, teachingSubject) VALUES ('T002', 'Laura', 'Moretti', 'Fisica');
+INSERT INTO Teachers (teach_cod, firstName, lastName, teachingSubject) VALUES ('T003', 'Francesco', 'Costa', 'Informatica');
+INSERT INTO Teachers (teach_cod, firstName, lastName, teachingSubject) VALUES ('T004', 'Alessia', 'Marino', 'Chimica');
+INSERT INTO Teachers (teach_cod, firstName, lastName, teachingSubject) VALUES ('T005', 'Giorgio', 'Greco', 'Biologia');
+
+
+INSERT INTO Courses (coursName, teacher_id) VALUES ('Analisi Matematica I', 1);
+INSERT INTO Courses (coursName, teacher_id) VALUES ('Fisica Generale', 2);
+INSERT INTO Courses (coursName, teacher_id) VALUES ('Programmazione Java', 3);
+INSERT INTO Courses (coursName, teacher_id) VALUES ('Chimica Organica', 4);
+INSERT INTO Courses (coursName, teacher_id) VALUES ('Biologia Molecolare', 5);
+
+
+INSERT INTO Enrollments (student_id, course_id) VALUES (1, 1);
+INSERT INTO Enrollments (student_id, course_id) VALUES (1, 3);
+INSERT INTO Enrollments (student_id, course_id) VALUES (2, 2);
+INSERT INTO Enrollments (student_id, course_id) VALUES (2, 3);
+INSERT INTO Enrollments (student_id, course_id) VALUES (3, 3);
+INSERT INTO Enrollments (student_id, course_id) VALUES (3, 5);
+INSERT INTO Enrollments (student_id, course_id) VALUES (4, 1);
+INSERT INTO Enrollments (student_id, course_id) VALUES (4, 4);
+INSERT INTO Enrollments (student_id, course_id) VALUES (5, 2);
+INSERT INTO Enrollments (student_id, course_id) VALUES (5, 5);
+
+
+
+
+
+
+
+
+
+
+
