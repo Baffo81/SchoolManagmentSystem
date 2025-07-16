@@ -37,6 +37,7 @@ SchoolManagementSystem è una piattaforma backend che consente la gestione di co
 - **Gestione Studenti**: CRUD per studenti, con filtri per nome, cognome e email.
 - **Gestione Errori**: Gestione centralizzata degli errori con risposte standardizzate.
 - **Validazione**: Validazione dei dati di input con annotazioni JSR-303.
+- **Documentazione API**: Documentazione delle API con Swagger all’indirizzo http://localhost:8080/swagger-ui.html.
 - **Test**: Test delle API con Postman.
 ## Struttura del Progetto
 ```
